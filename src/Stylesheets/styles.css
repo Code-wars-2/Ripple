@@ -16,6 +16,10 @@
 	position: absolute;
 }
 
+.ripple-mod{
+	position: absolute;
+}
+
 .spiral {
 	position: absolute;
 	left:50%;
@@ -72,3 +76,11 @@
 .reset{
 	position: relative;
 }
+
+/*
+<div className="ripple">
+          Ripple
+          <Ripple />
+        </div>*/
+
+        /*style={{ backgroundColor:"#"+value.toString()+value.toString()+value.toString() }}*/

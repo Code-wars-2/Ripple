@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Ripple from './Ripple';
 import Spiral from './Spiral';
+import RippleMod from './RippleMod'
 
 class App extends Component {
   constructor(props){
@@ -12,13 +13,9 @@ class App extends Component {
   render() {
     return (
       <div className="contain">
-        <div className="ripple">
-          Ripple
-          <Ripple />
-        </div>
-        <div className="spiral">
-          Spiral
-          <Spiral />
+        
+        <div className="ripple-mod">
+          <RippleMod />
         </div>
       </div>
     )
