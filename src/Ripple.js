@@ -20,7 +20,6 @@ let width = 0
 
 const addFactor = [0, 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5];
 let factor = 3;
-let recursion;
 
 class Ripple extends Component {
   constructor(props) {

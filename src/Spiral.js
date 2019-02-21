@@ -92,9 +92,11 @@ class Ripple extends Component {
         dynamicArray: data
       })
       factor = factor + 2
-      setInterval(this.renderRing, 100, data, i, j, factor)
+      setTimeout(this.renderRing, 400, data, i, j, factor)
     }
     else {
+      clearTimeout();
+      factor = 3;
       return false;
     }
   }
