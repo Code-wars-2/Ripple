@@ -20,6 +20,7 @@ let width = 0
 
 const addFactor = [0, 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5];
 let factor = 3;
+let recursion;
 
 class Ripple extends Component {
   constructor(props) {
@@ -92,9 +93,11 @@ class Ripple extends Component {
         dynamicArray: data
       })
       factor = factor + 2
-      setInterval(this.renderRing, 200, data, i, j, factor)
+      setTimeout(this.renderRing, 400, data, i, j, factor)
     }
     else {
+      clearTimeout();
+      factor = 3;
       return false;
     }
   }

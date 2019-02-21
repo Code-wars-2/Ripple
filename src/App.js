@@ -16,10 +16,10 @@ class App extends Component {
           Ripple
           <Ripple />
         </div>
-        <div className="spiral">
+        {/* <div className="spiral">
           Spiral
           <Spiral />
-        </div>
+        </div> */}
       </div>
     )
   }
