@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-// import { array } from './Array/array';
+import React, { Component } from 'react'; 
 import { Button , message } from 'antd';
 
 let array = [
@@ -42,7 +41,7 @@ class App extends Component {
   }
 
   renderRing = (data,i,j,factor) => {
-    if(factor<data.length){
+    if(factor<=data.length){
     let iPlus= null;
     let iMinus = null;
     let jPlus = null;
