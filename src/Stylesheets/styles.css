@@ -1,0 +1,60 @@
+@import '~antd/dist/antd.css';
+
+
+/*.body-container{
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+}*/
+
+.container{
+	position: fixed;
+	display: flex;
+	flex-wrap: wrap;
+	width:440px;
+	height:440px;
+}
+
+.btn-0{
+	height:40px;
+	width:40px;
+	border-radius: 0;
+}
+
+.btn-1{
+	height:40px;
+	width:40px;
+	border-radius: 0;
+	background-color: #000;
+	color: #fff;
+}
+
+.btn-1:focus{
+	height:40px;
+	width:40px;
+	border-radius: 0;
+	background-color: #000;
+	color: #fff;
+}
+
+
+
+.btn:hover{
+	height:40px;
+	width:40px;
+	border-radius: 0;
+	background-color: #4286f4;
+	color:#fff;
+}
+
+.btn-text{
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+}
+
+.reset{
+	position: relative;
+}
