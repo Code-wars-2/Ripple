@@ -8,6 +8,20 @@
 	transform: translate(-50%,-50%);
 }*/
 
+
+.contain{
+	display: flex;
+}
+.ripple{
+	position: absolute;
+}
+
+.spiral {
+	position: absolute;
+	left:50%;
+}
+
+
 .container{
 	position: fixed;
 	display: flex;
