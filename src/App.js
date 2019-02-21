@@ -92,7 +92,7 @@ class App extends Component {
       dynamicArray:data
     })
     factor=factor+2
-    setInterval(this.renderRing,2000,data,i,j,factor) 
+    setInterval(this.renderRing,700,data,i,j,factor) 
     }
     else{
       return false;
