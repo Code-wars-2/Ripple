@@ -13,7 +13,6 @@ class App extends Component {
   render() {
     return (
       <div className="contain">
-        
         <div className="ripple-mod">
           <RippleMod />
         </div>

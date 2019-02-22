@@ -24,6 +24,8 @@ let ends = [
   [0,0],
 ]
 
+var prevEnds = [];
+
 class RippleMod extends Component {
   constructor(props) {
     super(props)
@@ -58,7 +60,16 @@ class RippleMod extends Component {
       ends[3][0]=i+1;
       ends[3][1]=j-1;
       }
-      else{
+      else {
+      prevEnds[0][0]=ends[0][0];
+      prevEnds[0][1]=ends[0][1];
+      prevEnds[1][0]=ends[1][0];
+      prevEnds[1][1]=ends[1][1];
+      prevEnds[2][0]=ends[2][0];
+      prevEnds[2][1]=ends[2][1];
+      prevEnds[3][0]=ends[3][0];
+      prevEnds[3][1]=ends[3][1];
+
       ends[0][0]=ends[0][0]-1;
       ends[0][1]=ends[0][1]-1;
       ends[1][0]=ends[1][0]-1;
@@ -68,6 +79,7 @@ class RippleMod extends Component {
       ends[3][0]=ends[3][0]+1;
       ends[3][1]=ends[3][1]-1;
       }
+      console.log("first for")
       for(var a=0;a<data.length;a++){
         for(var b=0;b<data.length;b++){
           if(a===ends[0][0] && b===ends[0][1]){
@@ -81,6 +93,25 @@ class RippleMod extends Component {
           }
           if(a===ends[3][0] && b===ends[3][1]){
             data[a][b]=intensity-2;
+          }
+        }
+      }
+      console.log("second for")
+      if (prevEnds.length) {
+        for (var a = 0; a < data.length; a++) {
+          for (var b = 0; b < data.length; b++) {
+            if (a === prevEnds[0][0] && b === prevEnds[0][1]) {
+              data[a][b] = 10;
+            }
+            if (a === prevEnds[1][0] && b === prevEnds[1][1]) {
+              data[a][b] = 10;
+            }
+            if (a === prevEnds[2][0] && b === prevEnds[2][1]) {
+              data[a][b] = 10;
+            }
+            if (a === prevEnds[3][0] && b === prevEnds[3][1]) {
+              data[a][b] = 10;
+            }
           }
         }
       }
