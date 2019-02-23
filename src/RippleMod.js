@@ -174,6 +174,7 @@ class RippleMod extends Component {
     }
   }
 
+
   render() {
     return (
       <div className="body-container">

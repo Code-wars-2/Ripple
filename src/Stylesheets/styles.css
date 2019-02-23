@@ -37,6 +37,8 @@
 }
 
 .container-spiral{
+	height: 500px;
+	width: 500px;
 	position: absolute;
 	display: flex;
 	flex-wrap: wrap;
@@ -44,8 +46,6 @@
 
 
 .btn-spiral{
-	height:100px;
-	width:100px;
 	border-radius: 0;
 }
 

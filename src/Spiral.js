@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { Button, message } from 'antd';
 
 var array = [
-  [0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0 , 0],
+  [0, 0, 0, 0, 0 , 0],
+  [0, 0, 0, 0, 0 , 0],
+  [0, 0, 0, 0, 0 , 0],
+  [0, 0, 0, 0, 0 , 0],
+  [0, 0, 0, 0, 0 , 0],
 ]
 
 //put all variables here , use var to use as datatype
@@ -30,10 +31,10 @@ class Ripple extends Component {
   render() {
     return (
       <div className="body-container">
-        <div className="container-spiral" style={{ height:array.length*100+"px" , width:array.length*100+"px" }}>
+        <div className="container-spiral" >
           {this.state.dynamicArray.map((iIndex, i) => {
             return iIndex.map((value, j) => {
-              return (<Button onClick={() => this.startSpiral(i, j)} className="btn-spiral">
+              return (<Button onClick={() => this.startSpiral(i, j)} className="btn-spiral" style={{ height:500/array.length+"px" , width:500/array.length+"px" }}>
                 <div className="btn-text-spiral">
                   {i+","+j}
                 </div>
