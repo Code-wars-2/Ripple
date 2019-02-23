@@ -34,11 +34,6 @@ class RippleMod extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   height = window.screen.height;
-  //   width = window.screen.width;
-  // }
-
   ripple = (i, j) => {
     let data = this.state.dynamicArray
     data[i][j] = 1;
@@ -185,7 +180,7 @@ class RippleMod extends Component {
         <div className="container">
           {this.state.dynamicArray.map((iIndex, i) => {
             return iIndex.map((value, j) => {
-              return (<Button onClick={() => this.ripple(i, j)} className="btn-0" style={{ backgroundColor:"#0"+value.toString()+value.toString() }}>
+              return (<Button onClick={() => this.ripple(i, j)} className="btn-0" style={{ backgroundColor:"#"+value.toString()+value.toString()+value.toString() }}>
                 <div className="btn-text">
                   {value}
                 </div>

@@ -7,6 +7,9 @@
 	left:50%;
 	transform: translate(-50%,-50%);
 }*/
+.body-container{
+	padding: 30px;
+}
 
 
 .contain{
@@ -22,7 +25,6 @@
 
 .spiral {
 	position: absolute;
-	left:50%;
 }
 
 
@@ -32,6 +34,40 @@
 	flex-wrap: wrap;
 	width:440px;
 	height:440px;
+}
+
+.container-spiral{
+	position: absolute;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+
+.btn-spiral{
+	height:100px;
+	width:100px;
+	border-radius: 0;
+}
+
+.btn-spiral:hover{
+	background-color: #f5222d;
+	color:#fff;
+	border-color: #f5222d;
+}
+
+.btn-spiral:focus{
+	background-color: #f5222d;
+	color:#fff;
+	border-color: #f5222d;
+	outline-color: #f5222d;
+}
+
+.btn-text-spiral{
+	position: absolute;
+	top:50%;
+	left:50%;
+	font-size: 20px;
+	transform: translate(-50%,-50%);
 }
 
 .btn-0{
