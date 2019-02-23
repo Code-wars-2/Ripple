@@ -24,7 +24,44 @@ class Ripple extends Component {
   }
 
   startSpiral = (i, j) => {
-    //write your logic here
+     import java.lang.*;
+import java.util.*;
+
+public class HelloWorld{
+
+     public static void main(String []args){
+        System.out.println("Hello World");
+        int m;
+        int p;int q,y,z;
+        int i=4; int j=4;
+         y=j-1;
+         z=j+1;
+        for(m=0;m<4;m++){
+           
+            while(j<z+m){  //right
+                j++;
+                System.out.print(i+""+ j);System.out.print("\t");
+            }System.out.println();
+            while(i<z+m){ //down
+                i++;
+                System.out.print(i+""+j);System.out.print("\t");
+            }System.out.println();
+            while(j>y-m)//left
+            {
+                j--;
+                System.out.print(i+""+j);System.out.print("\t");
+            }System.out.println();
+            while(i>y-m){//up
+                i--;
+                System.out.print(i+""+j);System.out.print("\t");
+            }
+        }while(j<=m+1){  //right
+                j++;
+                System.out.print(i+""+ j);System.out.print("\t");
+            }System.out.println();
+     }
+}
+
   }
 
 
