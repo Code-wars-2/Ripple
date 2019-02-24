@@ -97,6 +97,13 @@ class Maze extends Component {
 
   setObstacle = () => {
     let data = this.state.dynamicArray;
+    for(var o=0;o<data.length;o++){
+      for(var p=0;p<data.length;p++){
+        if(data[o][p]==3){
+          data[o][p]=0;
+        }
+      }
+    }
     for(var h=0;h<(((data.length*data.length)-1)/2);h++){
         var x = Math.floor(Math.random()*this.state.dynamicArray.length);
         var y = Math.floor(Math.random()*this.state.dynamicArray.length);
