@@ -8,14 +8,14 @@
 	transform: translate(-50%,-50%);
 }*/
 .body-container{
-	padding: 30px;
-}
-
-
-.contain{
 	display: flex;
 }
-.ripple{
+
+/*
+.contain{
+	display: flex;
+}*/
+/*.ripple{
 	position: absolute;
 }
 
@@ -25,10 +25,12 @@
 
 .spiral {
 	position: absolute;
-}
+}*/
 
 
-.container{
+
+
+/*.container{
 	position: fixed;
 	display: flex;
 	flex-wrap: wrap;
@@ -42,20 +44,45 @@
 	position: absolute;
 	display: flex;
 	flex-wrap: wrap;
+}*/
+
+.container-maze{
+	position: fixed;
+	display: flex;
+	flex-wrap: wrap;
 }
 
-
-.btn-spiral{
+/*.btn-0-spiral{
 	border-radius: 0;
 }
 
-.btn-spiral:hover{
+.btn-1-spiral{
+	border-radius: 0;
 	background-color: #f5222d;
 	color:#fff;
 	border-color: #f5222d;
 }
 
-.btn-spiral:focus{
+.btn-0-spiral:hover{
+	background-color: #f5222d;
+	color:#fff;
+	border-color: #f5222d;
+}
+
+.btn-0-spiral:focus{
+	background-color: #f5222d;
+	color:#fff;
+	border-color: #f5222d;
+	outline-color: #f5222d;
+}
+
+.btn-1-spiral:hover{
+	background-color: #f5222d;
+	color:#fff;
+	border-color: #f5222d;
+}
+
+.btn-1-spiral:focus{
 	background-color: #f5222d;
 	color:#fff;
 	border-color: #f5222d;
@@ -107,16 +134,117 @@
 	top:50%;
 	left:50%;
 	transform: translate(-50%,-50%);
-}
+}*/
+
+/*.action-buttons{
+	position: absolute;
+	left:60%;
+}*/
 
 .reset{
 	position: relative;
+	background-color: #f5222d;
+	color:#fff;
+	border-color: #f5222d;
 }
 
-/*
-<div className="ripple">
-          Ripple
-          <Ripple />
-        </div>*/
+.action-buttons{
+	width:100%;
+	padding: 10px;
+	display: flex;
+	justify-content: flex-end;
+}
 
-        /*style={{ backgroundColor:"#"+value.toString()+value.toString()+value.toString() }}*/
+
+.btn-0-maze{
+	border-radius: 0;
+}
+
+.btn-1-maze{
+	border-radius: 0;
+	background-color: #f5222d;
+	color:#fff;
+	border-color: #f5222d;
+}
+
+.btn-2-maze{
+	border-radius: 0;
+	background-color: orange;
+	color:#fff;
+	border-color: orange;
+}
+
+.btn-3-maze{
+	border-radius: 0;
+	background-color: grey;
+	color:#fff;
+	border-color: grey;
+	-moz-box-shadow:    inset 0 0 10px #000000;
+   	-webkit-box-shadow: inset 0 0 10px #000000;
+	box-shadow: inset 0 0 10px #000000;
+}
+
+.btn-0-maze:hover{
+	background-color: #f5222d;
+	color:#fff;
+	border-color: #f5222d;
+}
+
+.btn-0-maze:focus{
+	background-color: #f5222d;
+	color:#fff;
+	border-color: #f5222d;
+	outline-color: #f5222d;
+}
+
+.btn-1-maze:hover{
+	background-color: #f5222d;
+	color:#fff;
+	border-color: #f5222d;
+}
+
+.btn-1-maze:focus{
+	background-color: #f5222d;
+	color:#fff;
+	border-color: #f5222d;
+	outline-color: #f5222d;
+}
+
+.btn-2-maze:hover{
+	background-color: orange;
+	color:#fff;
+	border-color: orange;
+}
+
+.btn-2-maze:focus{
+	background-color: orange;
+	color:#fff;
+	border-color: orange;
+	outline-color: orange;
+}
+
+.btn-3-maze:hover{
+	background-color: grey;
+	color:#fff;
+	border-color: grey;
+}
+
+.btn-3-maze:focus{
+	background-color: grey;
+	color:#fff;
+	border-color: grey;
+	outline-color: grey;
+}
+
+
+
+.btn-text-maze{
+	position: absolute;
+	top:50%;
+	left:50%;
+	font-size: 20px;
+	transform: translate(-50%,-50%);
+}
+
+
+
