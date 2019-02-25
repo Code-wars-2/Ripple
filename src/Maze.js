@@ -11,6 +11,9 @@ var array = [
 
 let scale = 200;
 let ratio = 40;
+let count = 0;
+
+let dir = ["left","right","up","down"]
 
 class Maze extends Component {
   constructor(props) {
@@ -126,11 +129,73 @@ class Maze extends Component {
       return;
     }
     else{
-      data[i][j]=1;
-      console.log(i,j)
-      this.setState({
-        dynamicArray: data
-      })     
+      if(count<10){
+        data = this.state.dynamicArray;
+        for(var o=0;o<data.length;o++){
+          for(var p=0;p<data.length;p++){
+            if(data[o][p]==1){
+              data[o][p]=0;
+            }
+          }
+        }
+        if(i>=0&&i<data.length&&j>=0&&j<data.length){
+          data[i][j]=1;
+        }
+        this.setState({
+            dynamicArray:data
+        })
+        var r = dir[Math.floor(Math.random()*dir.length)];
+        switch(r){
+          case "left":
+            if(j>0){
+              j=j-1;
+              setTimeout(this.findPath,500,i,j)
+            }
+            else{
+              setTimeout(this.findPath,500,i,j)
+            }
+            break;
+          case "right":
+            if(j<data.length-1){
+              j=j+1;
+              setTimeout(this.findPath,500,i,j)
+            }
+            else{
+              setTimeout(this.findPath,500,i,j)
+            }
+            break;
+          case "up":
+            if(i>0){
+              i=i-1;
+              setTimeout(this.findPath,500,i,j)
+            }
+            else{
+              setTimeout(this.findPath,500,i,j)
+            }
+            break;
+          case "down":
+            if(i<data.length-1){
+              i=i+1;
+              setTimeout(this.findPath,500,i,j)
+            }
+            else{
+              setTimeout(this.findPath,500,i,j)
+            }
+            break;
+          default:
+            console.log("default");
+        } 
+        count++;
+      }
+      else{
+        console.log("Over");
+        for(var o=0;o<data.length;o++){
+          for(var p=0;p<data.length;p++){
+              data[o][p]=0;
+          }
+        }
+        return;
+      }
     }
   }
 
