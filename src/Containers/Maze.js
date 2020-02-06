@@ -69,7 +69,7 @@ class Maze extends Component {
     }
     subArray.pop();
     console.log(subArray)
-    scale = scale-ratio;
+    scale = scale - ratio;
     this.setState({
       dynamicArray:subArray
     })

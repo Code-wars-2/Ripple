@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import Ripple from './Ripple';
-import Spiral from './Spiral';
-import RippleMod from './RippleMod';
-import Maze from './Maze';
+import * as Container from './Containers/index';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import * as Components from './Components/index'
 
 class App extends Component {
   constructor(props){
@@ -13,11 +12,19 @@ class App extends Component {
 
   render() {
     return (
-      <div className="contain">
-        <div className="maze">
-          <Maze />
-        </div>
-      </div>
+      <React.Fragment>
+        <Router>
+          <Components.Header/>
+          <Switch>
+            <Route exact path="/" component={Container.Maze} />
+            <Route exact path="/ripple" component={Container.Ripple} />
+            <Route exact path="/ripple-mod" component={Container.RippleMod} />
+            <Route exact path="/spiral" component={Container.Spiral} />
+            <Route exact path="/learner" component={Container.Learner} />
+          </Switch>
+        </Router>
+      </React.Fragment>
+
     )
   }
 }
