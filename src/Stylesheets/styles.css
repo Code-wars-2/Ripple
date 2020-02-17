@@ -1,263 +1,51 @@
-@import '~antd/dist/antd.css';
-
-.header {
-	padding: 10px;
-	border-bottom: 1px solid rgb(194, 194, 194);
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(209, 209, 209);
 }
 
-.header-link {
-	font-size: 18px;
-	font-weight: 100;
-	text-decoration: none;
-	color: black;
-	margin-right: 10px;
-	margin-left: 5px;
+.main-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* .body-container{
-	position: absolute;
-	top:50%;
-	left:50%;
-	transform: translate(-50%,-50%);
-}
-.body-container{
-	display: flex;
+.grid-container {
+  height: 90vh;
+  width: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 10px rgb(167, 167, 167);
 }
 
-
-.contain{
-	display: flex;
-}
-.ripple{
-	position: absolute;
+.grid-row {
+  height: 5%;
+  width: 100%;
+  display: flex;
 }
 
-.ripple-mod{
-	position: absolute;
+.grid-item-grey {
+  height: 100%;
+  width: 5%;
+  border: 1px solid rgb(209, 209, 209);
+  display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+	background-color: rgb(246, 246, 246);
+	transition: all 0.075s ease-in;
 }
 
-.spiral {
-	position: absolute;
+.grid-item-blue {
+  height: 100%;
+  width: 5%;
+  border: 1px solid rgb(33, 60, 134);
+  display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+	background-color: rgb(59, 95, 197);
+	transition: all 0.075s ease-in;
 }
-
-
-
-
-.container{
-	position: fixed;
-	display: flex;
-	flex-wrap: wrap;
-	width:440px;
-	height:440px;
-}
-
-.container-spiral{
-	height: 500px;
-	width: 500px;
-	position: absolute;
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.container-maze{
-	position: fixed;
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.btn-0-spiral{
-	border-radius: 0;
-}
-
-.btn-1-spiral{
-	border-radius: 0;
-	background-color: #f5222d;
-	color:#fff;
-	border-color: #f5222d;
-}
-
-.btn-0-spiral:hover{
-	background-color: #f5222d;
-	color:#fff;
-	border-color: #f5222d;
-}
-
-.btn-0-spiral:focus{
-	background-color: #f5222d;
-	color:#fff;
-	border-color: #f5222d;
-	outline-color: #f5222d;
-}
-
-.btn-1-spiral:hover{
-	background-color: #f5222d;
-	color:#fff;
-	border-color: #f5222d;
-}
-
-.btn-1-spiral:focus{
-	background-color: #f5222d;
-	color:#fff;
-	border-color: #f5222d;
-	outline-color: #f5222d;
-}
-
-.btn-text-spiral{
-	position: absolute;
-	top:50%;
-	left:50%;
-	font-size: 20px;
-	transform: translate(-50%,-50%);
-}
-
-.btn-0{
-	height:40px;
-	width:40px;
-	border-radius: 0;
-}
-
-.btn-1{
-	height:40px;
-	width:40px;
-	border-radius: 0;
-	background-color: #000;
-	color: #fff;
-}
-
-.btn-1:focus{
-	height:40px;
-	width:40px;
-	border-radius: 0;
-	background-color: #000;
-	color: #fff;
-}
-
-
-
-.btn:hover{
-	height:40px;
-	width:40px;
-	border-radius: 0;
-	background-color: #4286f4;
-	color:#fff;
-}
-
-.btn-text{
-	position: absolute;
-	top:50%;
-	left:50%;
-	transform: translate(-50%,-50%);
-}
-
-.action-buttons{
-	position: absolute;
-	left:60%;
-}
-
-.reset{
-	position: relative;
-	background-color: #f5222d;
-	color:#fff;
-	border-color: #f5222d;
-}
-
-.action-buttons{
-	width:100%;
-	padding: 10px;
-	display: flex;
-	justify-content: flex-end;
-}
-
-
-.btn-0-maze{
-	border-radius: 0;
-}
-
-.btn-1-maze{
-	border-radius: 0;
-	background-color: #f5222d;
-	color:#fff;
-	border-color: #f5222d;
-}
-
-.btn-2-maze{
-	border-radius: 0;
-	background-color: orange;
-	color:#fff;
-	border-color: orange;
-}
-
-.btn-3-maze{
-	border-radius: 0;
-	background-color: grey;
-	color:#fff;
-	border-color: grey;
-	-moz-box-shadow:    inset 0 0 10px #000000;
-   	-webkit-box-shadow: inset 0 0 10px #000000;
-	box-shadow: inset 0px 0px 20px #000000;
-}
-
-.btn-0-maze:hover{
-	background-color: #f5222d;
-	color:#fff;
-	border-color: #f5222d;
-}
-
-.btn-0-maze:focus{
-	background-color: #f5222d;
-	color:#fff;
-	border-color: #f5222d;
-	outline-color: #f5222d;
-}
-
-.btn-1-maze:hover{
-	background-color: #f5222d;
-	color:#fff;
-	border-color: #f5222d;
-}
-
-.btn-1-maze:focus{
-	background-color: #f5222d;
-	color:#fff;
-	border-color: #f5222d;
-	outline-color: #f5222d;
-}
-
-.btn-2-maze:hover{
-	background-color: orange;
-	color:#fff;
-	border-color: orange;
-}
-
-.btn-2-maze:focus{
-	background-color: orange;
-	color:#fff;
-	border-color: orange;
-	outline-color: orange;
-}
-
-.btn-3-maze:hover{
-	background-color: grey;
-	color:#fff;
-	border-color: grey;
-}
-
-.btn-3-maze:focus{
-	background-color: grey;
-	color:#fff;
-	border-color: grey;
-	outline-color: grey;
-}
-
-
-
-.btn-text-maze{
-	position: absolute;
-	top:50%;
-	left:50%;
-	font-size: 20px;
-	transform: translate(-50%,-50%);
-}
-
-
- */

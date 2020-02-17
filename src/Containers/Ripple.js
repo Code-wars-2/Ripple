@@ -1,120 +1,88 @@
 import React, { Component } from 'react';
-import { Button, message } from 'antd';
+import { getRippledPath, redrawGrid } from '../Lib/Utils';
 
-let array = [
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-]
-
-let height = 0
-let width = 0
-
-const addFactor = [0, 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5];
-let factor = 3;
+var rippleTimer;
 
 class Ripple extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      dynamicArray: array,
+      grid: [],
+      size: 40
     }
   }
 
   componentDidMount() {
-    height = window.screen.height;
-    width = window.screen.width;
+    this.setupGrid()
   }
 
-  showIndex = (i, j) => {
-    let data = this.state.dynamicArray
-    data[i][j] = 1;
-    this.renderRing(data, i, j, factor)
+  setupGrid = () => {
+    let { size } = this.state;
+    let grid = new Array(size);
+    grid.fill(1);
+    grid.forEach((value, index) => {
+      let innerGrid = new Array(size);
+      innerGrid.fill(1);
+      grid[index] = innerGrid;
+    })
+    this.setState({
+      grid
+    })
   }
 
-  renderRing = (data, i, j, factor) => {
-    if (factor <= data.length) {
-      let iPlus = null;
-      let iMinus = null;
-      let jPlus = null;
-      let jMinus = null;
-      if (i >= 0 && i < data.length) {
-        iPlus = i + addFactor[factor];
-        iMinus = i - addFactor[factor];
-      }
-      if (j >= 0 && j < data.length) {
-        jPlus = j + addFactor[factor];
-        jMinus = j - addFactor[factor];
-      }
-      if (iPlus < data.length && jPlus < data.length) {
-        data[iPlus][jPlus] = 1;
-      }
-      if (iMinus >= 0 && jMinus >= 0) {
-        data[iMinus][jMinus] = 1;
-      }
-      console.log("setInterval", factor)
+  toggleItem = (e) => {
+    let row = parseInt(e.target.getAttribute('data-row'));
+    let column = parseInt(e.target.getAttribute('data-column'));
+    let { grid } = this.state;
+    grid[row][column] = grid[row][column] === 1 ? 2 : 1;
+    this.setState({
+      grid
+    })
+  }
 
-      if (iMinus >= 0 && jMinus >= 0) {
-        for (let iIndex = iMinus; iIndex < iMinus + factor; iIndex++) {
-          if (iIndex < data.length && jMinus < data.length) {
-            data[iIndex][jMinus] = 1
-          }
-        }
-        for (let jIndex = jMinus; jIndex < jMinus + factor; jIndex++) {
-          if (jIndex < data.length && iMinus < data.length) {
-            data[iMinus][jIndex] = 1
-          }
-        }
-      }
+  startRipple = (e) => {
+    let row = parseInt(e.target.getAttribute('data-row'));
+    let column = parseInt(e.target.getAttribute('data-column'));
+    let { grid } = this.state;
+    grid[row][column] = 2;
+    let currentRipple = [{ row, column }];
+    let center = { row, column }
+    this.setState({
+      grid
+    })
+    rippleTimer = setTimeout(this.moveRipple, 150, currentRipple, center)
+  }
 
-      if (iPlus < data.length && jPlus < data.length) {
-        for (let iIndex = iPlus; iIndex > iPlus - factor; iIndex--) {
-          if (iIndex >= 0 && iPlus >= 0) {
-            data[iIndex][jPlus] = 1
-          }
-        }
-        for (let jIndex = jPlus; jIndex > jPlus - factor; jIndex--) {
-          if (jIndex >= 0 && jPlus >= 0) {
-            data[iPlus][jIndex] = 1
-          }
-        }
-      }
+  moveRipple = (currentRipple, center) => {
+    let { grid } = this.state;
+    let newRipple = getRippledPath(currentRipple, center)
+    this.setState({
+      grid: redrawGrid(grid, newRipple)
+    })
+    rippleTimer = setTimeout(this.moveRipple, 150, newRipple, center)
+  }
 
-      this.setState({
-        dynamicArray: data
-      })
-      factor = factor + 2
-      setTimeout(this.renderRing, 400, data, i, j, factor)
+  renderColumn = (rowIndex, column, colIndex) => {
+    let className;
+    if (column === 1) {
+      className = "grid-item-grey";
+    } else if (column === 2) {
+      className = "grid-item-blue";
     }
-    else {
-      clearTimeout();
-      factor = 3;
-      return false;
-    }
+    return <div className={className} data-row={rowIndex} data-column={colIndex} key={colIndex} onClick={this.startRipple}></div>
   }
 
+  renderRow = (column, index) => {
+    return <div className="grid-row" key={index}>{column.map(this.renderColumn.bind(this, index))}</div>
+  }
 
   render() {
+    let { grid } = this.state;
+  
     return (
-      <div className="body-container">
-        <div className="container">
-          {this.state.dynamicArray.map((iIndex, i) => {
-            return iIndex.map((value, j) => {
-              return (<Button onClick={() => this.showIndex(i, j)} className={"btn-" + value.toString()}>
-                <div className="btn-text">
-                  {value}
-                </div>
-              </Button>)
-            })
-          })}
+      <div className="main-container">
+        <div className="grid-container">
+          {grid.map(this.renderRow)}
         </div>
       </div>
     )
