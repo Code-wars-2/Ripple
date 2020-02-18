@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { getRippledPath, redrawGrid } from '../Lib/Utils';
 
 var rippleTimer;
+var count = 0;
 
 class Ripple extends Component {
   constructor(props) {
@@ -50,6 +51,7 @@ class Ripple extends Component {
     this.setState({
       grid
     })
+    count = 0;
     rippleTimer = setTimeout(this.moveRipple, 150, currentRipple, center)
   }
 
@@ -59,7 +61,12 @@ class Ripple extends Component {
     this.setState({
       grid: redrawGrid(grid, newRipple)
     })
-    rippleTimer = setTimeout(this.moveRipple, 150, newRipple, center)
+    count += 1;
+    if (count < 5) {
+      rippleTimer = setTimeout(this.moveRipple, 150, newRipple, center)
+    } else {
+      clearTimeout(rippleTimer)
+    }
   }
 
   renderColumn = (rowIndex, column, colIndex) => {
